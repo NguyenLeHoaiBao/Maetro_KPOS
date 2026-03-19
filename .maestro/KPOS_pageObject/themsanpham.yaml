@@ -1,0 +1,36 @@
+appId: kingfood.kpos.app.dev
+---
+- runScript: KPOS_locator.js
+- tapOn:
+    text: ".*${output.pos.searchProductField}.*"
+
+- eraseText: 10 # Tự động xóa khoảng 10 ký tự trong ô trước khi nhập (để đảm bảo ô cũ đã sạch)
+- inputText: ${PRODUCT_CODE}
+- pressKey: Enter
+- runFlow:
+    when:
+      notVisible:
+        text: ".*txt-invoice-line-item-code-${PRODUCT_CODE}.*"
+    file: themlaisanpham.yaml
+    env:
+      PRODUCT_CODE: ${PRODUCT_CODE}
+- assertVisible:
+    text: ".*txt-invoice-line-item-code-${PRODUCT_CODE}.*"
+- retry:
+    maxRetries: 3
+    commands:
+      # ── Bước 1: Nhập số lượng ──────────────────────────────────────────
+      - tapOn:
+          text: ".*txt-invoice-line-item-quantity-${PRODUCT_CODE}.*"
+      - eraseText: 3
+      - inputText: "${QUANTITY}"
+      - pressKey: Enter
+      # Kiểm tra số lượng đã hiển thị đúng chưa
+      # Element sẽ có text dạng: "QUANTITY, txt-invoice-line-item-quantity-PRODUCT_CODE"
+      # Chờ tối đa 10s cho đến khi số lượng mới xuất hiện
+      - extendedWaitUntil:
+          visible:
+            text: "${QUANTITY}, txt-invoice-line-item-quantity-${PRODUCT_CODE}"
+          timeout: 10000
+      - assertVisible:
+          text: "${QUANTITY}, txt-invoice-line-item-quantity-${PRODUCT_CODE}"

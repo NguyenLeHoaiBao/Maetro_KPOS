@@ -1,0 +1,20 @@
+appId: kingfood.kpos.app.dev
+---
+# Flow: Kiểm tra tổng giá của sản phẩm
+# Biến truyền vào:
+#   - PRODUCT_CODE: Mã sản phẩm (VD: SPAUTOTEST294)
+#   - EXPECTED_PRICE: Giá mong đợi (VD: 90.000)
+#
+# Element hiển thị dạng:
+#   txt-invoice-line-item-total-price-SPAUTOTEST294
+#   90.000
+#
+# Chỉ cần 1 line có giá khớp với EXPECTED_PRICE là PASS.
+
+- runScript: KPOS_locator.js
+
+# assertVisible sẽ tìm BẤT KỲ element nào trên màn hình
+# có text chứa cả giá mong đợi và mã sản phẩm.
+# Nếu app tách thành nhiều line con, chỉ cần 1 line khớp là đủ.
+- assertVisible:
+    text: "txt-invoice-line-item-total-price-${PRODUCT_CODE}\n${EXPECTED_PRICE}"

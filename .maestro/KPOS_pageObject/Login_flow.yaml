@@ -1,0 +1,19 @@
+appId: kingfood.kpos.app.dev
+---
+- runScript: KPOS_locator.js
+- retry:
+    maxRetries: 3
+    commands:
+      - launchApp:
+          clearState: true
+      - tapOn: ${output.login.usernameField}
+      - inputText: "SC003668"
+      - tapOn: ${output.login.passwordField}
+      - inputText: "123645"
+      - tapOn: ${output.login.submitButton}
+      - extendedWaitUntil:
+          visible:
+            text: ".*${output.pos.newInvoiceButton}.*"
+          timeout: 90000
+- tapOn:
+    text: ".*${output.pos.newInvoiceButton}.*"

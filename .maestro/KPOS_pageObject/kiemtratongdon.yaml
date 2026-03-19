@@ -1,0 +1,26 @@
+appId: kingfood.kpos.app.dev
+---
+# Flow: Kiểm tra tổng đơn hàng
+# Các biến truyền vào từ script ngoài (env):
+#   - Tongsoluong:  (VD: "18")
+#   - Giamgia:      (VD: "0")
+#   - Thukhac:      (VD: "0")
+#   - Khachcantra:  (VD: "490.000")
+
+- runScript: KPOS_locator.js
+
+# 1/ Kiểm tra Tổng số lượng 
+- assertVisible:
+    text: "txt-invoice-right-total-items\n${Tongsoluong}"
+
+# 2/ Kiểm tra Giảm giá
+- assertVisible:
+    text: "txt-invoice-right-discount\n${Giamgia}"
+
+# 3/ Kiểm tra Thu khác
+- assertVisible:
+    text: "txt-invoice-right-surcharge\n${Thukhac}"
+
+# 4/ Kiểm tra Khách cần trả
+- assertVisible:
+    text: "txt-invoice-right-need-pay\n${Khachcantra}"

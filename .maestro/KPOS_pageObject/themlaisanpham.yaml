@@ -1,0 +1,8 @@
+appId: kingfood.kpos.app.dev
+---
+- runScript: KPOS_locator.js
+- tapOn:
+    text: ".*${output.pos.searchProductField}.*"
+- eraseText: 50
+- inputText: ${PRODUCT_CODE}
+- pressKey: Enter

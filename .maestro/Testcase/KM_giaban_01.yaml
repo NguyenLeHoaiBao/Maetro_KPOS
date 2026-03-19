@@ -1,0 +1,47 @@
+appId: kingfood.kpos.app.dev
+---
+- runFlow: ../KPOS_pageObject/Login_flow.yaml
+
+- runFlow:
+    env:
+      PRODUCT_CODE: "SPAUTOTEST294"
+      QUANTITY: "8"
+    file: ../KPOS_pageObject/themsanpham2.yaml
+
+- runFlow:
+    env:
+      PRODUCT_CODE: "SPAUTOTEST296"
+      QUANTITY: "10"
+    file: ../KPOS_pageObject/themsanpham2.yaml
+
+- runFlow:
+    env:
+      PRODUCT_CODE: "SPAUTOTEST294"
+      EXPECTED_PRICE: "90.000"
+    file: ../KPOS_pageObject/kiemtratonggia.yaml
+
+- runFlow:
+    env:
+      PRODUCT_CODE: "SPAUTOTEST294"
+      EXPECTED_PRICE: "0"
+    file: ../KPOS_pageObject/kiemtratonggia.yaml    
+
+- runFlow:
+    env:
+      PRODUCT_CODE: "SPAUTOTEST296"
+      EXPECTED_PRICE: "400.000"
+    file: ../KPOS_pageObject/kiemtratonggia.yaml  
+
+- runFlow:
+    env:
+      PRODUCT_CODE: "SPAUTOTEST296"
+      EXPECTED_PRICE: "0"
+    file: ../KPOS_pageObject/kiemtratonggia.yaml  
+
+- runFlow:
+    env:
+      Tongsoluong: "18"
+      Giamgia: "0"
+      Thukhac: "0"
+      Khachcantra: "490.000"
+    file: ../KPOS_pageObject/kiemtratongdon.yaml
