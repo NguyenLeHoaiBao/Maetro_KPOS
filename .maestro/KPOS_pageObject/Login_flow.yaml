@@ -1,6 +1,6 @@
 appId: kingfood.kpos.app.dev
 ---
-- runScript: KPOS_locator.js
+- runScript: ../KPOS_locator/KPOS_locator.js
 - retry:
     maxRetries: 3
     commands:

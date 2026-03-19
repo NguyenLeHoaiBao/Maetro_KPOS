@@ -11,7 +11,7 @@ appId: kingfood.kpos.app.dev
 #
 # Chỉ cần 1 line có giá khớp với EXPECTED_PRICE là PASS.
 
-- runScript: KPOS_locator.js
+- runScript: ../KPOS_locator/KPOS_locator.js
 
 # assertVisible sẽ tìm BẤT KỲ element nào trên màn hình
 # có text chứa cả giá mong đợi và mã sản phẩm.
