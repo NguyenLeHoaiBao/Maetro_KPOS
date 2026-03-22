@@ -1,0 +1,35 @@
+appId: kingfood.kpos.app.dev
+---
+- runScript: ../KPOS_locator/KPOS_locator.js
+- tapOn:
+    text: ".*${output.pos.searchProductField}.*"
+- eraseText: 10
+- inputText: ${PRODUCT_CODE}
+- pressKey: Enter
+- runFlow:
+    when:
+      notVisible:
+        text: ".*txt-invoice-line-item-code-${PRODUCT_CODE}.*"
+    file: themlaisanpham.yaml
+    env:
+      PRODUCT_CODE: ${PRODUCT_CODE}
+- assertVisible:
+    text: ".*txt-invoice-line-item-code-${PRODUCT_CODE}.*"
+- runFlow:
+    when:
+      true: ${typeof QUANTITY !== 'undefined' && QUANTITY !== '' && QUANTITY !== '1'}
+    commands:
+      - retry:
+          maxRetries: 3
+          commands:
+            - tapOn:
+                text: ".*txt-invoice-line-item-quantity-${PRODUCT_CODE}.*"
+            - eraseText: 3
+            - inputText: "${QUANTITY}"
+            - pressKey: Enter
+            - extendedWaitUntil:
+                visible:
+                  text: "${QUANTITY}, txt-invoice-line-item-quantity-${PRODUCT_CODE}"
+                timeout: 10000
+            - assertVisible:
+                text: "${QUANTITY}, txt-invoice-line-item-quantity-${PRODUCT_CODE}"

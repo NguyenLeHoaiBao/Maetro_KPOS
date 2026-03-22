@@ -1,0 +1,18 @@
+appId: kingfood.kpos.app.dev
+---
+- retry:
+    maxRetries: 3
+    commands:
+      # Click vào button thêm appid
+      - tapOn: btn-invoice-right-scan-code-button
+      #Kiểm tra bảng nhập appid hiển thị chưa
+      - assertVisible: Nhập mã khách hàng OneLife
+      # Click vào filed nhập mã khách hàng
+      - tapOn: ".*txt-invoice-right-onelife-scan-qr-code.*"
+      # Input mã appid
+      - inputText: ${APPID_CODE}
+      # Kế tiếp ấn nút áp dụng:
+      - tapOn: btn-invoice-right-onelife-scan-qr-apply
+
+      # Kiểm tra coi popup có đóng hay chưa
+      - assertNotVisible: Nhập mã khách hàng OneLife

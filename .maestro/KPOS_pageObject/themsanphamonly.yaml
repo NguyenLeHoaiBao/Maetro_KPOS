@@ -4,7 +4,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE !== 'undefined' && PRODUCT_CODE !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE}
       QUANTITY: "${typeof QUANTITY !== 'undefined' ? QUANTITY : '1'}"
@@ -13,7 +13,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_1 !== 'undefined' && PRODUCT_CODE_1 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_1}
       QUANTITY: "${typeof QUANTITY_1 !== 'undefined' ? QUANTITY_1 : '1'}"
@@ -21,7 +21,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_2 !== 'undefined' && PRODUCT_CODE_2 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_2}
       QUANTITY: "${typeof QUANTITY_2 !== 'undefined' ? QUANTITY_2 : '1'}"
@@ -29,7 +29,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_3 !== 'undefined' && PRODUCT_CODE_3 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_3}
       QUANTITY: "${typeof QUANTITY_3 !== 'undefined' ? QUANTITY_3 : '1'}"
@@ -37,7 +37,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_4 !== 'undefined' && PRODUCT_CODE_4 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_4}
       QUANTITY: "${typeof QUANTITY_4 !== 'undefined' ? QUANTITY_4 : '1'}"
@@ -45,7 +45,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_5 !== 'undefined' && PRODUCT_CODE_5 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_5}
       QUANTITY: "${typeof QUANTITY_5 !== 'undefined' ? QUANTITY_5 : '1'}"
@@ -53,7 +53,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_6 !== 'undefined' && PRODUCT_CODE_6 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_6}
       QUANTITY: "${typeof QUANTITY_6 !== 'undefined' ? QUANTITY_6 : '1'}"
@@ -61,7 +61,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_7 !== 'undefined' && PRODUCT_CODE_7 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_7}
       QUANTITY: "${typeof QUANTITY_7 !== 'undefined' ? QUANTITY_7 : '1'}"
@@ -69,7 +69,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_8 !== 'undefined' && PRODUCT_CODE_8 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_8}
       QUANTITY: "${typeof QUANTITY_8 !== 'undefined' ? QUANTITY_8 : '1'}"
@@ -77,7 +77,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_9 !== 'undefined' && PRODUCT_CODE_9 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_9}
       QUANTITY: "${typeof QUANTITY_9 !== 'undefined' ? QUANTITY_9 : '1'}"
@@ -85,7 +85,7 @@ appId: kingfood.kpos.app.dev
 - runFlow:
     when:
       true: ${typeof PRODUCT_CODE_10 !== 'undefined' && PRODUCT_CODE_10 !== ''}
-    file: themsanpham_single.yaml
+    file: themsanphamonly_single.yaml
     env:
       PRODUCT_CODE: ${PRODUCT_CODE_10}
       QUANTITY: "${typeof QUANTITY_10 !== 'undefined' ? QUANTITY_10 : '1'}"

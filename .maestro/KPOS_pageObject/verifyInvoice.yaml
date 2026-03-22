@@ -1,0 +1,10 @@
+appId: kingfood.kpos.app.dev
+---
+- runScript:
+    file: verifyInvoice.js
+    env:
+      InvoiceID: ${InvoiceID}
+      Tongsoluong: ${Tongsoluong}
+      Giamgia: ${Giamgia}
+      Khachcantra: ${Khachcantra}
+      PROMO_TEXT: ${PROMO_TEXT}

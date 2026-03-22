@@ -1,0 +1,28 @@
+appId: kingfood.kpos.app.dev
+---
+- runScript: ../KPOS_locator/KPOS_locator.js
+- tapOn:
+    text: ".*${output.pos.searchProductField}.*"
+- eraseText: 50
+- inputText: ${PRODUCT_CODE}
+- pressKey: Enter
+- runFlow:
+    when:
+      notVisible:
+        text: ".*txt-invoice-line-item-code-${PRODUCT_CODE}.*"
+    file: themlaisanpham.yaml
+    env:
+      PRODUCT_CODE: ${PRODUCT_CODE}
+- assertVisible:
+    text: ".*txt-invoice-line-item-code-${PRODUCT_CODE}.*"
+- runFlow:
+    when:
+      true: ${typeof QUANTITY !== 'undefined' && QUANTITY !== '' && QUANTITY !== '1'}
+    commands:
+      - retry:
+          maxRetries: 3
+          commands:
+            - tapOn:
+                text: ".*txt-invoice-line-item-quantity-${PRODUCT_CODE}.*"
+            # Chú ý: ban đầu themsanphamonly.yaml không có eraseText ở đây
+            - inputText: "${QUANTITY}"

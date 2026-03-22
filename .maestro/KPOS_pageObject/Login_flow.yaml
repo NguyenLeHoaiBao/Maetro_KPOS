@@ -17,3 +17,11 @@ appId: kingfood.kpos.app.dev
           timeout: 90000
 - tapOn:
     text: ".*${output.pos.newInvoiceButton}.*"
+
+# Chờ tab hóa đơn xuất hiện
+- extendedWaitUntil:
+    visible:
+      text: ".*Hoá đơn.*"
+    timeout: 15000
+
+

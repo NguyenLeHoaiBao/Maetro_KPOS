@@ -1,20 +1,133 @@
 appId: kingfood.kpos.app.dev
 ---
-# Flow: Kiểm tra tổng giá của sản phẩm
-# Biến truyền vào:
-#   - PRODUCT_CODE: Mã sản phẩm (VD: SPAUTOTEST294)
-#   - EXPECTED_PRICE: Giá mong đợi (VD: 90.000)
-#
-# Element hiển thị dạng:
-#   txt-invoice-line-item-total-price-SPAUTOTEST294
-#   90.000
-#
-# Chỉ cần 1 line có giá khớp với EXPECTED_PRICE là PASS.
-
 - runScript: ../KPOS_locator/KPOS_locator.js
 
-# assertVisible sẽ tìm BẤT KỲ element nào trên màn hình
-# có text chứa cả giá mong đợi và mã sản phẩm.
-# Nếu app tách thành nhiều line con, chỉ cần 1 line khớp là đủ.
-- assertVisible:
-    text: "txt-invoice-line-item-total-price-${PRODUCT_CODE}\n${EXPECTED_PRICE}"
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_1 !== 'undefined' && PRODUCT_CODE_1 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_1}\n${EXPECTED_PRICE_1}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_1 !== 'undefined' && PROMO_TEXT_1 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_1}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_2 !== 'undefined' && PRODUCT_CODE_2 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_2}\n${EXPECTED_PRICE_2}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_2 !== 'undefined' && PROMO_TEXT_2 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_2}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_3 !== 'undefined' && PRODUCT_CODE_3 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_3}\n${EXPECTED_PRICE_3}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_3 !== 'undefined' && PROMO_TEXT_3 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_3}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_4 !== 'undefined' && PRODUCT_CODE_4 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_4}\n${EXPECTED_PRICE_4}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_4 !== 'undefined' && PROMO_TEXT_4 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_4}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_5 !== 'undefined' && PRODUCT_CODE_5 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_5}\n${EXPECTED_PRICE_5}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_5 !== 'undefined' && PROMO_TEXT_5 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_5}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_6 !== 'undefined' && PRODUCT_CODE_6 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_6}\n${EXPECTED_PRICE_6}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_6 !== 'undefined' && PROMO_TEXT_6 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_6}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_7 !== 'undefined' && PRODUCT_CODE_7 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_7}\n${EXPECTED_PRICE_7}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_7 !== 'undefined' && PROMO_TEXT_7 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_7}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_8 !== 'undefined' && PRODUCT_CODE_8 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_8}\n${EXPECTED_PRICE_8}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_8 !== 'undefined' && PROMO_TEXT_8 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_8}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_9 !== 'undefined' && PRODUCT_CODE_9 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_9}\n${EXPECTED_PRICE_9}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_9 !== 'undefined' && PROMO_TEXT_9 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_9}.*"
+
+- runFlow:
+    when:
+      true: ${typeof PRODUCT_CODE_10 !== 'undefined' && PRODUCT_CODE_10 !== ''}
+    commands:
+      - assertVisible:
+          text: "txt-invoice-line-item-total-price-${PRODUCT_CODE_10}\n${EXPECTED_PRICE_10}"
+      - runFlow:
+          when:
+            true: "${typeof PROMO_TEXT_10 !== 'undefined' && PROMO_TEXT_10 !== ''}"
+          commands:
+            - assertVisible:
+                text: ".*${PROMO_TEXT_10}.*"

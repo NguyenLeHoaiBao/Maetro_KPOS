@@ -1,0 +1,10 @@
+appId: kingfood.kpos.app.dev
+---
+- copyTextFrom:
+    text: ".*KP.*"
+- evalScript: ${output.raw = maestro.copiedText}
+- evalScript: '${console.log("copiedText: " + output.raw)}'
+- evalScript: ${output.invoiceCode = maestro.copiedText.match(/KP\d+/)[0]}
+- evalScript: '${console.log("copiedText: " + output.invoiceCode)}'
+- evalScript: ${output.invoiceId = maestro.copiedText.split(" - ").pop().split("KP")[0].trim().replace(/\s+/g, '')}
+- evalScript: '${console.log("copiedText: " + output.invoiceId)}'

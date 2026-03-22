@@ -1,0 +1,16 @@
+appId: kingfood.kpos.app.dev
+---
+- retry:
+    maxRetries: 3
+    commands:
+      # Thực hiện chọn phương thức tiền mặt
+      - tapOn: btn-invoice-right-payment-method-0
+
+      # Kế tiếp ấn nút Thanh toán
+      - tapOn: btn-invoice-right-pay-button
+
+      # Đợi kết quả (Dialog tạo đơn mới).
+      - extendedWaitUntil:
+          visible:
+            text: ".*btn-new-invoice-btn-pos-create-new-invoice.*"
+          timeout: 10000
