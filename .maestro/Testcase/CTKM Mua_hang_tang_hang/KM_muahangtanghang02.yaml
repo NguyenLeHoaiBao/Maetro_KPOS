@@ -1,0 +1,46 @@
+appId: kingfood.kpos.app.dev
+---
+- runFlow: ../../KPOS_pageObject/Login_flow.yaml
+
+- runFlow:
+    env:
+      PRODUCT_CODE_1: "1101555"
+      QUANTITY_1: "3"     
+    file: ../../KPOS_pageObject/themsanphamonly.yaml
+
+- runFlow:
+    env:
+      APPID_CODE: "210818694874416373"
+    file: ../../KPOS_pageObject/themkhachhangOL.yaml
+
+- runFlow:
+    env:
+      PRODUCT_CODE_1: "1101555"
+      EXPECTED_PRICE_1: "22.502"
+      PROMO_TEXT_1: "KM mua 2 tang 1"
+      PRODUCT_CODE_2: "1101555"
+      EXPECTED_PRICE_2: "0"
+      PROMO_TEXT_2: "KM mua 2 tang 1"
+      
+    file: ../../KPOS_pageObject/kiemtratonggia.yaml
+
+- runFlow:
+    env:
+      Tongsoluong: "3"
+      Giamgia: "0"
+      Thukhac: "0"
+      Khachcantra: "22.502"
+    file: ../../KPOS_pageObject/kiemtratongdon.yaml
+
+- runFlow: ../../KPOS_pageObject/getInvoiceID.yaml
+
+- runFlow: ../../KPOS_pageObject/thanhtoantienmat.yaml
+
+- runFlow:
+    env:
+      InvoiceID: ${output.invoiceId}
+      Tongsoluong: "3"
+      Giamgia: "0"
+      Khachcantra: "22.502"
+      PROMO_TEXT: "KM mua 2 tang 1"
+    file: ../../KPOS_pageObject/verifyInvoice.yaml
